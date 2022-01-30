@@ -23,6 +23,7 @@ class Piece {
     move(p) {
         this.x = p.x;
         this.y = p.y;
+        this.shape = p.shape;
     }
 }
 
@@ -31,7 +32,14 @@ function handleKeyPress(event) {
     event.preventDefault();
     if (moves[event.keyCode]) {
         let p = moves[event.keyCode](board.piece);
-        board.piece.move(p);
-        draw();
+        if (event.keyCode === KEY.SPACE) {
+            while (board.isValid(p)) {
+                board.piece.move(p);
+                p = moves[KEY.SPACE](board.piece);
+            }
+        }
+       if(board.isValid(p)){ 
+           board.piece.move(p);
+       }
     }
 }
