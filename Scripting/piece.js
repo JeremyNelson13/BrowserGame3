@@ -20,5 +20,18 @@ class Piece {
             });
         });
     }
+    move(p) {
+        this.x = p.x;
+        this.y = p.y;
+    }
 }
 
+let board = new Board();
+function handleKeyPress(event) {
+    event.preventDefault();
+    if (moves[event.keyCode]) {
+        let p = moves[event.keyCode](board.piece);
+        board.piece.move(p);
+        draw();
+    }
+}
