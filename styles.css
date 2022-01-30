@@ -2,7 +2,7 @@
 * {
     font-family: 'Press Start 2P', cursive;
 }
-.game-grid {
+.grid {
     display: grid;
     grid-template-columns: 320px 200px;
 }
@@ -12,6 +12,7 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
 .game-board {
     border: solid 2px;
 }
